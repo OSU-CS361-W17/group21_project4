@@ -74,5 +74,7 @@ public class Ship {
 }
 
 public class Civ_Ship extends Ship {
-    
+    public Civ_Ship(String n, int l,Coordinate s, Coordinate e) {
+        super(n,1,s,e)
+    }
 }
