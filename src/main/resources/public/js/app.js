@@ -26,6 +26,8 @@ function placeShip() {
 
    request.done(function( currModel ) {
      displayGameState(currModel);
+
+     currModel.$( "#shipSelec" ).val()
      gameModel = currModel;
 
    });
@@ -111,8 +113,8 @@ if (scanned){
 displayShip(gameModel.aircraftCarrier);
 displayShip(gameModel.battleship);
 displayShip(gameModel.cruiser);
-displayShip(gameModel.destroyer);
-displayShip(gameModel.submarine);
+displayShip(gameModel.clipper);
+displayShip(gameModel.dinghy);
 
 for (var i = 0; i < gameModel.computerMisses.length; i++) {
    $( '#TheirBoard #' + gameModel.computerMisses[i].Across + '_' + gameModel.computerMisses[i].Down ).css("background-color", "green");
@@ -127,6 +129,7 @@ for (var i = 0; i < gameModel.playerMisses.length; i++) {
 for (var i = 0; i < gameModel.playerHits.length; i++) {
    $( '#MyBoard #' + gameModel.playerHits[i].Across + '_' + gameModel.playerHits[i].Down ).css("background-color", "red");
 }
+
 
 
 
@@ -151,7 +154,5 @@ function displayShip(ship){
         }
     }
  }
-
-
 
 }
