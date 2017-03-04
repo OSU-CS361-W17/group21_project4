@@ -72,3 +72,7 @@ public class Ship {
         return false;
     }
 }
+
+public class Civ_Ship extends Ship {
+    
+}
