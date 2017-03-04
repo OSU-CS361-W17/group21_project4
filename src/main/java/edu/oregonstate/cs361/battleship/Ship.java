@@ -6,18 +6,18 @@ package edu.oregonstate.cs361.battleship;
 public class Ship {
     private String name;
     private int length;
-    private int alive;
-    private int numhits;
+    private boolean alive;
+    private int health;
     private Coordinate start;
     private Coordinate end;
 
-    public Ship(String n, int l,Coordinate s, Coordinate e) {
+    public Ship(String n, int l, int h,Coordinate s, Coordinate e) {
         name = n;
         length = l;
         start = s;
         end = e;
-        alive = 10;
-        numhits = 0;
+        alive = true;
+        health = h;
     }
 
 
@@ -26,8 +26,16 @@ public class Ship {
         end = e;
     }
 
-    public void setAlive(int x){
-        alive = x;
+    public void makeDed(){
+        alive = false;
+    }
+
+    public void decHealth(){
+        health --;
+    }
+
+    public int getHealth(){
+        return health;
     }
 
     public boolean covers(Coordinate test) {
@@ -55,7 +63,7 @@ public class Ship {
         return false;
     }
 
-    public int isAlive() {
+    public boolean isAlive() {
         return alive;
     }
 

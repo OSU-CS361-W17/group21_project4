@@ -1,5 +1,6 @@
 var gameModel;
 var scanned = false;
+var lifeChecked = false;
 
 $( document ).ready(function() {
   // Handler for .ready() called.
@@ -53,6 +54,7 @@ function fire(){
    });
 
    scanned = false;
+   lifeChecked = true;
 
    request.done(function( currModel ) {
      displayGameState(currModel);
