@@ -5,6 +5,6 @@ package edu.oregonstate.cs361.battleship;
  */
 public class Civ_Ship extends Ship {
     public Civ_Ship(String n, int l, int h, Coordinate s, Coordinate e){
-        super(n,l,s,e);
+        super(n,l, h, s,e);
     }
 }
