@@ -5,19 +5,48 @@ body {
     background-color: skyblue;
 }
 
+h3 {
+font-size: 15px;
+}
+
+#boardwrap{
+width: 1200px;
+    display: inline-block;
+}
+
+#shipwrap{
+    width: 350px;
+    display: inline-block;
+    position:relative;
+}
+
+
 #MyBoard{
+    width: 400px;
     background-color: #4CAF50;
     border-radius: 25px;
+    float:left;
 }
 #TheirBoard{
+    width: 400px;
     background-color: red;
+    border-radius: 25px;
+    float:right;
+}
+
+#pshipLayout {
+    width: 150px;
+    position: relative;
+    background-color: lightblue;
+    display: inline-block;
     border-radius: 25px;
 }
 
-#shipLayout {
-    background-color: white;
-    float: left;
-    padding: 10px;
+#cshipLayout {
+    width: 150px;
+    position: relative;
+    background-color: lightblue;
+    display: inline-block;
     border-radius: 25px;
 }
 
@@ -91,6 +120,7 @@ table, th, td {
 #MyBoard .ship{
 background-color: orange;
 }
+
 
 /*
 button {
