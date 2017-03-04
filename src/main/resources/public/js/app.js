@@ -27,8 +27,6 @@ function placeShip() {
 
    request.done(function( currModel ) {
      displayGameState(currModel);
-
-     currModel.$( "#shipSelec" ).val()
      gameModel = currModel;
 
    });
