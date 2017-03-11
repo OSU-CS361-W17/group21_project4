@@ -150,7 +150,7 @@ public class BattleshipModel {
 
     void playerShot(Coordinate coor) {
         if(playerMisses.contains(coor) || playerHits.contains(coor)){
-            System.out.println("Dupe");
+            shootAtPlayer();
         }
 
         if(aircraftCarrier.covers(coor)){
