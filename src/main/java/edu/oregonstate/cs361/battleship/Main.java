@@ -10,9 +10,11 @@ import static spark.Spark.post;
 import static spark.Spark.staticFiles;
 
 public class Main {
+
+
     public static void main(String[] args) {
         staticFiles.location("/public");
-
+        System.out.println("test");
         //This will listen to GET requests to /model and return a clean new model
         get("/model", (req, res) -> newModel());
         //This will listen to POST requests and expects to receive a game model, as well as location to fire to
