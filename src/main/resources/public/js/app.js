@@ -114,6 +114,7 @@ if(lifeChecked){
     if(gameModel.shipSunk){
         alert("ship sunk")
     }
+    gameModel.shipSunk = false;
 }
 
 displayShip(gameModel.aircraftCarrier);
