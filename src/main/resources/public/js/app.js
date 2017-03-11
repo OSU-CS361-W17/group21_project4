@@ -110,6 +110,12 @@ if (scanned){
     }
 }
 
+if(lifeChecked){
+    if(gameModel.shipSunk){
+        alert("ship sunk")
+    }
+}
+
 displayShip(gameModel.aircraftCarrier);
 displayShip(gameModel.battleship);
 displayShip(gameModel.cruiser);
