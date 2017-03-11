@@ -12,14 +12,14 @@ public class BattleshipModel {
     private Mil_Ship aircraftCarrier = new Mil_Ship("AircraftCarrier",5, 5, new Coordinate(0,0),new Coordinate(0,0));
     private Mil_Ship battleship = new Mil_Ship("Battleship",4, 4, new Coordinate(0,0),new Coordinate(0,0));
     private Mil_Ship cruiser = new Mil_Ship("Cruiser",3, 3, new Coordinate(0,0),new Coordinate(0,0));
-    private Civ_Ship clipper = new Civ_Ship("Clipper",2, 1, new Coordinate(0,0),new Coordinate(0,0));
-    private Civ_Ship dinghy = new Civ_Ship("dinghy",2, 1, new Coordinate(0,0),new Coordinate(0,0));
+    private Civ_Ship clipper = new Civ_Ship("Clipper",3, 1, new Coordinate(0,0),new Coordinate(0,0));
+    private Civ_Ship dinghy = new Civ_Ship("dinghy",1, 1, new Coordinate(0,0),new Coordinate(0,0));
 
     private Mil_Ship computer_aircraftCarrier = new Mil_Ship("Computer_AircraftCarrier",5, 5, new Coordinate(2,2),new Coordinate(2,7));
     private Mil_Ship computer_battleship = new Mil_Ship("Computer_Battleship",4, 4, new Coordinate(2,8),new Coordinate(6,8));
     private Mil_Ship computer_cruiser = new Mil_Ship("Computer_Cruiser",3, 3, new Coordinate(4,1),new Coordinate(4,4));
-    private Civ_Ship computer_clipper = new Civ_Ship("Computer_Clipper",2, 1, new Coordinate(7,3),new Coordinate(7,5));
-    private Civ_Ship computer_dinghy = new Civ_Ship("Computer_dinghy",2, 1, new Coordinate(9,6),new Coordinate(9,8));
+    private Civ_Ship computer_clipper = new Civ_Ship("Computer_Clipper",3, 1, new Coordinate(7,3),new Coordinate(7,5));
+    private Civ_Ship computer_dinghy = new Civ_Ship("Computer_dinghy",1, 1, new Coordinate(9,6),new Coordinate(9,8));
 
     ArrayList<Coordinate> playerHits;
     private ArrayList<Coordinate> playerMisses;
@@ -40,15 +40,14 @@ public class BattleshipModel {
     public void lifeCheck(Ship in){
         shipSunk = false;
         if (in.isAlive()) {
-            if (in.getHealth() == 0) {
+            if (in.getHealth()==0) {
                 in.makeDed();
                 shipSunk = true;
             } else {
                 shipSunk = false;
             }
-        } else if (!in.isAlive()){
+        } else {
             shipSunk = false;
-            return;
         }
     }
 
@@ -79,15 +78,15 @@ public class BattleshipModel {
 
         if(orientation.equals("horizontal")){
             if (shipName.equalsIgnoreCase("aircraftcarrier")) {
-                this.getShip(shipName).setLocation(new Coordinate(rowint,colInt),new Coordinate(rowint,colInt+5));
-            } if(shipName.equalsIgnoreCase("battleship")) {
                 this.getShip(shipName).setLocation(new Coordinate(rowint,colInt),new Coordinate(rowint,colInt+4));
-            } if(shipName.equalsIgnoreCase("Cruiser")) {
+            } if(shipName.equalsIgnoreCase("battleship")) {
                 this.getShip(shipName).setLocation(new Coordinate(rowint,colInt),new Coordinate(rowint,colInt+3));
+            } if(shipName.equalsIgnoreCase("Cruiser")) {
+                this.getShip(shipName).setLocation(new Coordinate(rowint,colInt),new Coordinate(rowint,colInt+2));
             } if(shipName.equalsIgnoreCase("clipper")) {
                 this.getShip(shipName).setLocation(new Coordinate(rowint,colInt),new Coordinate(rowint,colInt+2));
             }if(shipName.equalsIgnoreCase("dinghy")) {
-                this.getShip(shipName).setLocation(new Coordinate(rowint, colInt), new Coordinate(rowint, colInt + 2));
+                this.getShip(shipName).setLocation(new Coordinate(rowint, colInt), new Coordinate(rowint, colInt + 0));
             }
         }else{
             //vertical
@@ -100,7 +99,7 @@ public class BattleshipModel {
                 } if(shipName.equalsIgnoreCase("clipper")) {
                     this.getShip(shipName).setLocation(new Coordinate(rowint,colInt),new Coordinate(rowint+2,colInt));
                 }if(shipName.equalsIgnoreCase("dinghy")) {
-                    this.getShip(shipName).setLocation(new Coordinate(rowint, colInt), new Coordinate(rowint + 2, colInt));
+                    this.getShip(shipName).setLocation(new Coordinate(rowint, colInt), new Coordinate(rowint + 0, colInt));
                 }
         }
         return this;
