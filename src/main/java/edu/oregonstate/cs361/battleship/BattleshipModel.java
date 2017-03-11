@@ -58,7 +58,7 @@ public class BattleshipModel {
         } if(shipName.equalsIgnoreCase("battleship")) {
             return battleship;
         } if(shipName.equalsIgnoreCase("Cruiser")) {
-        return cruiser;
+            return cruiser;
         } if(shipName.equalsIgnoreCase("clipper")) {
             return clipper;
         }if(shipName.equalsIgnoreCase("dinghy")) {
