@@ -53,6 +53,7 @@ function fire(){
 
    scanned = false;
    lifeChecked = true;
+   someFlag = true;
 
    request.done(function( currModel ) {
      displayGameState(currModel);

@@ -30,6 +30,7 @@ public class BattleshipModel {
     boolean scanResult = false;
     boolean shipSunk = false;
 
+
     public BattleshipModel() {
         playerHits = new ArrayList<>();
         playerMisses= new ArrayList<>();
@@ -107,6 +108,10 @@ public class BattleshipModel {
 
     public void shootAtComputer(int row, int col) {
         Coordinate coor = new Coordinate(row,col);
+        if(computerMisses.contains(coor)){
+            System.out.println("dupe");
+        }
+
         if(computer_aircraftCarrier.covers(coor)){
             computerHits.add(coor);
             computer_aircraftCarrier.decHealth();
@@ -144,7 +149,7 @@ public class BattleshipModel {
     }
 
     void playerShot(Coordinate coor) {
-        if(playerMisses.contains(coor)){
+        if(playerMisses.contains(coor) || playerHits.contains(coor)){
             System.out.println("Dupe");
         }
 
