@@ -77,6 +77,12 @@ public class BattleshipModel {
             this.setShipCount(this.getShipCount() + 1);
         }
 
+        if (this.getShip(shipName).getLength() + rowint > 11) {
+            return this;
+        } else if (this.getShip(shipName).getLength() + colInt > 11){
+            return this;
+        }
+
         if(orientation.equals("horizontal")){
             if (shipName.equalsIgnoreCase("aircraftcarrier")) {
                 this.getShip(shipName).setLocation(new Coordinate(rowint,colInt),new Coordinate(rowint,colInt+4));

@@ -67,6 +67,8 @@ public class Ship {
         return alive;
     }
 
+    public int getLength() {return length; }
+
     public String getName() {
         return name;
     }
