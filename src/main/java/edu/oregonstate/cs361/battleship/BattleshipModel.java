@@ -96,6 +96,33 @@ public class BattleshipModel {
         }
     }
 
+    public boolean checkCollision (Coordinate start, Coordinate end, String orientation) {
+        Coordinate temp = new Coordinate(start.getAcross(), start.getDown());
+        System.out.println("check collision");
+        if (orientation.equals("horizontal")) {
+            for (int i = 0; i < 5; i++){
+                temp.setDown(temp.getDown() + i);
+                if (playerPlaces.contains(temp)){
+                    System.out.println("collision");
+                    return true;
+                } else {
+                    System.out.println("no collision");
+                    return false; }
+            }
+        } else if (orientation.equals("vertical")) {
+            for (int i = 0; i <= end.getAcross(); i++) {
+                temp.setAcross(temp.getAcross()+i);
+                if (playerPlaces.contains(temp)) {
+                    System.out.println("collision");
+                    return true;
+                } else {
+                    System.out.println("no collision");
+                    return false; }
+            }
+        }
+        return false;
+    }
+
     public BattleshipModel placeShip(String shipName, String row, String col, String orientation) {
         int rowint = Integer.parseInt(row);
         int colInt = Integer.parseInt(col);
@@ -115,8 +142,11 @@ public class BattleshipModel {
                 this.getShip(shipName).setLocation(new Coordinate(rowint,colInt),new Coordinate(rowint,colInt+4));
                 storeCoords(this.getShip(shipName), 1, "horizontal");
             } if(shipName.equalsIgnoreCase("battleship")) {
-                this.getShip(shipName).setLocation(new Coordinate(rowint,colInt),new Coordinate(rowint,colInt+3));
-                storeCoords(this.getShip(shipName), 1, "horizontal");
+                if (!checkCollision(new Coordinate(rowint, colInt), new Coordinate(rowint, colInt + 3), orientation))
+                {
+                    this.getShip(shipName).setLocation(new Coordinate(rowint, colInt), new Coordinate(rowint, colInt + 3));
+                    storeCoords(this.getShip(shipName), 1, "horizontal");
+                }
             } if(shipName.equalsIgnoreCase("Cruiser")) {
                 this.getShip(shipName).setLocation(new Coordinate(rowint,colInt),new Coordinate(rowint,colInt+2));
                 storeCoords(this.getShip(shipName), 1, "horizontal");
