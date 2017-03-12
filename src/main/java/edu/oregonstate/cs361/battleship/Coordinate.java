@@ -37,4 +37,9 @@ public class Coordinate {
     public void setAcross(int across) {
         Across = across;
     }
+
+    public void print(){
+        System.out.println( "Across: "+Across );
+        System.out.println( "Down: "+Down );
+    }
 }

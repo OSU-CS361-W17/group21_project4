@@ -25,6 +25,10 @@ public class BattleshipModel {
     private ArrayList<Coordinate> playerMisses;
     ArrayList<Coordinate> computerHits;
     private ArrayList<Coordinate> computerMisses;
+    ArrayList<Coordinate> playerPlaces;
+    ArrayList<Coordinate> computerPlaces;
+
+
     private int shipCount = 0;
 
     boolean scanResult = false;
@@ -36,6 +40,8 @@ public class BattleshipModel {
         playerMisses= new ArrayList<>();
         computerHits = new ArrayList<>();
         computerMisses= new ArrayList<>();
+        playerPlaces= new ArrayList<>();
+        computerPlaces= new ArrayList<>();
     }
 
     public void lifeCheck(Ship in){
@@ -69,11 +75,32 @@ public class BattleshipModel {
         }
     }
 
+    public void storeCoords (Ship in, int opt, String orientation) {
+        if (orientation.equals("horizontal" )) {
+            for (int i = 0; i < in.getLength(); i++) {
+                Coordinate temp = new Coordinate(in.getStart().getAcross(), in.getStart().getDown());
+                temp.setDown(temp.getDown() + i);
+                playerPlaces.add(temp);
+            }
+        } else if (orientation.equals("vertical")) {
+            for (int i = 0; i < in.getLength(); i++) {
+                Coordinate temp = new Coordinate(in.getStart().getAcross(), in.getStart().getDown());
+                temp.setAcross(temp.getAcross() + i);
+                playerPlaces.add(temp);
+
+            }
+        }
+
+        for (int i = 0; i < playerPlaces.size(); i++) {
+            playerPlaces.get(i).print();
+        }
+    }
+
     public BattleshipModel placeShip(String shipName, String row, String col, String orientation) {
         int rowint = Integer.parseInt(row);
         int colInt = Integer.parseInt(col);
 
-        if(this.getShip(shipName).isAlive()) {
+        if (this.getShip(shipName).isAlive()) {
             this.setShipCount(this.getShipCount() + 1);
         }
 
@@ -86,27 +113,37 @@ public class BattleshipModel {
         if(orientation.equals("horizontal")){
             if (shipName.equalsIgnoreCase("aircraftcarrier")) {
                 this.getShip(shipName).setLocation(new Coordinate(rowint,colInt),new Coordinate(rowint,colInt+4));
+                storeCoords(this.getShip(shipName), 1, "horizontal");
             } if(shipName.equalsIgnoreCase("battleship")) {
                 this.getShip(shipName).setLocation(new Coordinate(rowint,colInt),new Coordinate(rowint,colInt+3));
+                storeCoords(this.getShip(shipName), 1, "horizontal");
             } if(shipName.equalsIgnoreCase("Cruiser")) {
                 this.getShip(shipName).setLocation(new Coordinate(rowint,colInt),new Coordinate(rowint,colInt+2));
+                storeCoords(this.getShip(shipName), 1, "horizontal");
             } if(shipName.equalsIgnoreCase("clipper")) {
                 this.getShip(shipName).setLocation(new Coordinate(rowint,colInt),new Coordinate(rowint,colInt+2));
+                storeCoords(this.getShip(shipName), 1, "horizontal");
             }if(shipName.equalsIgnoreCase("dinghy")) {
                 this.getShip(shipName).setLocation(new Coordinate(rowint, colInt), new Coordinate(rowint, colInt + 0));
+                storeCoords(this.getShip(shipName), 1, "horizontal");
             }
         }else{
             //vertical
                 if (shipName.equalsIgnoreCase("aircraftcarrier")) {
                     this.getShip(shipName).setLocation(new Coordinate(rowint,colInt),new Coordinate(rowint+4,colInt));
+                    storeCoords(this.getShip(shipName), 1, "vertical");
                 } if(shipName.equalsIgnoreCase("battleship")) {
                     this.getShip(shipName).setLocation(new Coordinate(rowint,colInt),new Coordinate(rowint+3,colInt));
+                    storeCoords(this.getShip(shipName), 1, "vertical");
                 } if(shipName.equalsIgnoreCase("Cruiser")) {
                     this.getShip(shipName).setLocation(new Coordinate(rowint,colInt),new Coordinate(rowint+2,colInt));
+                    storeCoords(this.getShip(shipName), 1, "vertical");
                 } if(shipName.equalsIgnoreCase("clipper")) {
                     this.getShip(shipName).setLocation(new Coordinate(rowint,colInt),new Coordinate(rowint+2,colInt));
+                    storeCoords(this.getShip(shipName), 1, "vertical");
                 }if(shipName.equalsIgnoreCase("dinghy")) {
                     this.getShip(shipName).setLocation(new Coordinate(rowint, colInt), new Coordinate(rowint + 0, colInt));
+                    storeCoords(this.getShip(shipName), 1, "vertical");
                 }
         }
         return this;

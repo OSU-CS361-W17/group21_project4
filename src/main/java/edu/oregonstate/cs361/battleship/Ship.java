@@ -73,6 +73,9 @@ public class Ship {
         return name;
     }
 
+    public Coordinate getStart() { return start; }
+    public Coordinate getEnd() { return end; }
+
 
     public boolean scan(Coordinate coor) {
         if(covers(coor)){
