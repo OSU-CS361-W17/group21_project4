@@ -102,15 +102,15 @@ public class BattleshipModel {
         if (orientation.equals("horizontal")) {
             for (int i = 0; i <= (end.getDown() - start.getDown()); i++){
                 temp.setDown(start.getDown() + i);
-                System.out.println("checking: ");
-                start.print();
-                end.print();
-                temp.print();
+                //System.out.println("checking: ");
+                //start.print();
+                //end.print();
+                //temp.print();
                 if (playerPlaces.contains(temp)){
-                    System.out.println("collision");
+                    //System.out.println("collision");
                     return true;
                 } else {
-                    System.out.println("no collision");
+                    //System.out.println("no collision");
                     continue;
                 }
             }
@@ -254,18 +254,24 @@ public class BattleshipModel {
         int randCol = random.nextInt(max - min + 1) + min;
 
         Coordinate coor = new Coordinate(randRow,randCol);
-        playerShot(coor);
+
+        if (!playerShot(coor)) {
+            shootAtPlayer();
+        }
+
     }
 
-    void playerShot(Coordinate coor) {
+    boolean playerShot(Coordinate coor) {
         if(playerMisses.contains(coor) || playerHits.contains(coor)){
-            shootAtPlayer();
+            System.out.println("duop-a-loop");
+            return false;
         }
 
         if(aircraftCarrier.covers(coor)){
             playerHits.add(coor);
             aircraftCarrier.decHealth();
             lifeCheck(aircraftCarrier);
+            System.out.println("Aircraft Carrier Hit! Health: "+aircraftCarrier.getHealth());
         }else if (battleship.covers(coor)){
             playerHits.add(coor);
             battleship.decHealth();
@@ -285,6 +291,7 @@ public class BattleshipModel {
         } else {
             playerMisses.add(coor);
         }
+        return true;
     }
 
 
