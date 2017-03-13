@@ -221,23 +221,23 @@ public class BattleshipModel {
             System.out.println("dupe");
         }
 
-        if(computer_aircraftCarrier.covers(coor)){
+        if(computer_aircraftCarrier.covers(coor) && !computerHits.contains(coor)){
             computerHits.add(coor);
             computer_aircraftCarrier.decHealth();
             lifeCheck(computer_aircraftCarrier);
-        }else if (computer_battleship.covers(coor)){
+        }else if (computer_battleship.covers(coor) && !computerHits.contains(coor)){
             computerHits.add(coor);
             computer_battleship.decHealth();
             lifeCheck(computer_battleship);
-        }else if (computer_cruiser.covers(coor)){
+        }else if (computer_cruiser.covers(coor) && !computerHits.contains(coor)){
             computerHits.add(coor);
             computer_cruiser.decHealth();
             lifeCheck(computer_cruiser);
-        }else if (computer_clipper.covers(coor)){
+        }else if (computer_clipper.covers(coor) && !computerHits.contains(coor)){
             computerHits.add(coor);
             computer_clipper.decHealth();
             lifeCheck(computer_clipper);
-        }else if (computer_dinghy.covers(coor)){
+        }else if (computer_dinghy.covers(coor) && !computerHits.contains(coor)){
             computerHits.add(coor);
             computer_dinghy.decHealth();
             lifeCheck(computer_dinghy);
