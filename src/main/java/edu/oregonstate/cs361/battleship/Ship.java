@@ -67,9 +67,14 @@ public class Ship {
         return alive;
     }
 
+    public int getLength() {return length; }
+
     public String getName() {
         return name;
     }
+
+    public Coordinate getStart() { return start; }
+    public Coordinate getEnd() { return end; }
 
 
     public boolean scan(Coordinate coor) {

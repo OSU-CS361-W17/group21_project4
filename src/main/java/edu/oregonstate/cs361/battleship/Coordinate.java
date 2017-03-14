@@ -16,7 +16,8 @@ public class Coordinate {
     public boolean equals(Object object){
         boolean isEqual = false;
         if (object != null && object instanceof Coordinate){
-            isEqual = (this.Across == ((Coordinate) object).Across && this.Down == ((Coordinate) object).Down);
+            isEqual = (this.Across == ((Coordinate) object).Across
+                    && this.Down == ((Coordinate) object).Down);
         }
         return isEqual;
     }
@@ -35,5 +36,10 @@ public class Coordinate {
 
     public void setAcross(int across) {
         Across = across;
+    }
+
+    public void print(){
+        System.out.println( "Across: "+Across );
+        System.out.println( "Down: "+Down );
     }
 }
