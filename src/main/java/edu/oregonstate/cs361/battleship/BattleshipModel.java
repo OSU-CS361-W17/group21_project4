@@ -151,28 +151,28 @@ public class BattleshipModel {
         }
 
         if(orientation.equals("horizontal")){
-            if (shipName.equalsIgnoreCase("aircraftcarrier")) {
+            if (shipName.equalsIgnoreCase("aircraftcarrier") || shipName.equalsIgnoreCase("computer_aircraftcarrier")) {
                 if (!checkCollision(new Coordinate(rowint, colInt), new Coordinate(rowint, colInt + 4), orientation)) {
                     this.getShip(shipName).setLocation(new Coordinate(rowint, colInt), new Coordinate(rowint, colInt + 4));
                     storeCoords(this.getShip(shipName), 1, "horizontal");
                 }
-            } if(shipName.equalsIgnoreCase("battleship")) {
+            } if(shipName.equalsIgnoreCase("battleship") || shipName.equalsIgnoreCase("computer_battleship")) {
                 if (!checkCollision(new Coordinate(rowint, colInt), new Coordinate(rowint, colInt + 3), orientation))
                 {
                     this.getShip(shipName).setLocation(new Coordinate(rowint, colInt), new Coordinate(rowint, colInt + 3));
                     storeCoords(this.getShip(shipName), 1, "horizontal");
                 } else { return this; }
-            } if(shipName.equalsIgnoreCase("Cruiser")) {
+            } if(shipName.equalsIgnoreCase("Cruiser") || shipName.equalsIgnoreCase("computer_cruiser")) {
                 if (!checkCollision(new Coordinate(rowint, colInt), new Coordinate(rowint, colInt + 2), orientation)) {
                     this.getShip(shipName).setLocation(new Coordinate(rowint, colInt), new Coordinate(rowint, colInt + 2));
                     storeCoords(this.getShip(shipName), 1, "horizontal");
                 }
-            } if(shipName.equalsIgnoreCase("clipper")) {
+            } if(shipName.equalsIgnoreCase("clipper") || shipName.equalsIgnoreCase("clipper")) {
                 if (!checkCollision(new Coordinate(rowint, colInt), new Coordinate(rowint, colInt + 2), orientation)) {
                     this.getShip(shipName).setLocation(new Coordinate(rowint, colInt), new Coordinate(rowint, colInt + 2));
                     storeCoords(this.getShip(shipName), 1, "horizontal");
                 }
-            }if(shipName.equalsIgnoreCase("dinghy")) {
+            }if(shipName.equalsIgnoreCase("dinghy") || shipName.equalsIgnoreCase("computer_dinghy")) {
                 if (!checkCollision(new Coordinate(rowint, colInt), new Coordinate(rowint, colInt), orientation)) {
                     this.getShip(shipName).setLocation(new Coordinate(rowint, colInt), new Coordinate(rowint, colInt + 0));
                     storeCoords(this.getShip(shipName), 1, "horizontal");
@@ -180,31 +180,31 @@ public class BattleshipModel {
             }
         }else{
             //vertical
-                if (shipName.equalsIgnoreCase("aircraftcarrier")) {
+                if (shipName.equalsIgnoreCase("aircraftcarrier") || shipName.equalsIgnoreCase("computer_aircraftcarrier")) {
                     if (!checkCollision(new Coordinate(rowint, colInt), new Coordinate(rowint + 4, colInt), orientation))
                     {
                         this.getShip(shipName).setLocation(new Coordinate(rowint, colInt), new Coordinate(rowint + 4, colInt));
                         storeCoords(this.getShip(shipName), 1, "vertical");
                     }
-                } if(shipName.equalsIgnoreCase("battleship")) {
+                } if(shipName.equalsIgnoreCase("battleship") || shipName.equalsIgnoreCase("computer_battleship")) {
                     if (!checkCollision(new Coordinate(rowint, colInt), new Coordinate(rowint + 3, colInt), orientation))
                     {
                         this.getShip(shipName).setLocation(new Coordinate(rowint, colInt), new Coordinate(rowint + 3, colInt));
                         storeCoords(this.getShip(shipName), 1, "vertical");
                     }
-                } if(shipName.equalsIgnoreCase("Cruiser")) {
+                } if(shipName.equalsIgnoreCase("Cruiser") || shipName.equalsIgnoreCase("computer_cruiser")) {
                     if (!checkCollision(new Coordinate(rowint, colInt), new Coordinate(rowint + 2, colInt), orientation))
                     {
                         this.getShip(shipName).setLocation(new Coordinate(rowint, colInt), new Coordinate(rowint + 2, colInt));
                         storeCoords(this.getShip(shipName), 1, "vertical");
                     }
-                } if(shipName.equalsIgnoreCase("clipper")) {
+                } if(shipName.equalsIgnoreCase("clipper") || shipName.equalsIgnoreCase("computer_clipper")) {
                     if (!checkCollision(new Coordinate(rowint, colInt), new Coordinate(rowint + 2, colInt), orientation))
                     {
                     this.getShip(shipName).setLocation(new Coordinate(rowint, colInt), new Coordinate(rowint + 2, colInt));
                     storeCoords(this.getShip(shipName), 1, "vertical");
                     }
-                }if(shipName.equalsIgnoreCase("dinghy")) {
+                }if(shipName.equalsIgnoreCase("dinghy") || shipName.equalsIgnoreCase("computer_dinghy")) {
                     if (!checkCollision(new Coordinate(rowint, colInt), new Coordinate(rowint, colInt), orientation))
                     {
                         this.getShip(shipName).setLocation(new Coordinate(rowint, colInt), new Coordinate(rowint + 0, colInt));
