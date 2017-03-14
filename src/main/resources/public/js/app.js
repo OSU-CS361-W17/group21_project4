@@ -53,6 +53,7 @@ function fire(){
 
    scanned = false;
    lifeChecked = true;
+   someFlag = true;
 
    request.done(function( currModel ) {
      displayGameState(currModel);
@@ -108,6 +109,13 @@ if (scanned){
     else {
         alert("Scan found no Ships")
     }
+}
+
+if(lifeChecked){
+    if(gameModel.shipSunk){
+        alert("ship sunk")
+    }
+    gameModel.shipSunk = false;
 }
 
 displayShip(gameModel.aircraftCarrier);

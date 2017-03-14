@@ -113,8 +113,14 @@ height:40px;
 background-color:blue;
 }
 
+
+
 table, th, td {
    border: 1px solid black;
+}
+
+td:hover {
+    border-color: antiquewhite;
 }
 
 #MyBoard .ship{
