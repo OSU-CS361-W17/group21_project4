@@ -5,6 +5,7 @@ package edu.oregonstate.cs361.battleship;
  */
 
 public class Player {
+  
     public Player(){
         Firsthit = new Coordinate(11,11);
         Lasthit = new Coordinate(11,11);

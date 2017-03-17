@@ -1,11 +1,14 @@
 package edu.oregonstate.cs361.battleship;
 
+
 import java.util.ArrayList;
 import java.util.Random;
+
 
 /**
  * hmm
  */
+
 
 public class Hard extends BattleshipModel {
 
