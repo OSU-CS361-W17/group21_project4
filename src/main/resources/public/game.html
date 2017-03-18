@@ -92,7 +92,16 @@ function selecVert() {
 }
 </script>
 
-<body>
+<script>
+    function setDiff(){
+        document.getElementById("diffSelec").value = "hard";
+    }
+</script>
+
+<body >
+
+<button type="button" onclick="setEasy()">Easy</button>
+<button type="button" onclick="setHard()">Hard</button>
 
 <h1 align="center">Battle Ship</h1>
 <h1></h1>

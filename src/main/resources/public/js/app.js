@@ -36,8 +36,45 @@ function placeShip() {
    });
 }
 
+function setHard(){
+    var request = $.ajax({
+         url: "/hard",
+         method: "post",
+         data: JSON.stringify(gameModel),
+         contentType: "application/json; charset=utf-8",
+         dataType: "json"
+        });
 
+        request.done(function( currModel ) {
+            displayGameState(currModel);
+            gameModel = currModel;
 
+        });
+
+        request.fail(function( jqXHR, textStatus ) {
+            alert( "Request failed: " + textStatus );
+        });
+}
+
+function setEasy(){
+    var request = $.ajax({
+         url: "/easy",
+         method: "post",
+         data: JSON.stringify(gameModel),
+         contentType: "application/json; charset=utf-8",
+         dataType: "json"
+        });
+
+        request.done(function( currModel ) {
+            displayGameState(currModel);
+            gameModel = currModel;
+
+        });
+
+        request.fail(function( jqXHR, textStatus ) {
+            alert( "Request failed: " + textStatus );
+        });
+}
 
 function fire(){
  console.log($( "#colFire" ).val());
